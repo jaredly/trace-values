@@ -28,10 +28,22 @@ public class Value {
         this.children = new ArrayList<>();
     }
 
+    public static Value ghost(int id, ValueTypeBase type) {
+        return new Value(
+                id,
+                type,
+                Pos.ghost(""),
+                Pos.ghost(""),
+                new Path(new ArrayList<>()),
+                Optional.empty()
+        );
+    }
+
     void addChild(int child) {
         this.children.add(child);
     }
 
+    // TODO maybe I need to always track the resolved type?
     public static class ValueTypeBase { }
 
     public static final class IntLiteral extends ValueTypeBase {
@@ -77,16 +89,30 @@ public class Value {
         }
     }
 
+    public static final class FunctionArgument extends ValueTypeBase {
+        final Type type;
+        FunctionArgument(Type type) {
+            this.type = type;
+        }
+    }
+
     /**
      * After an `if`, for example, if the two branches have different values for a variable,
      * this will join the two possibilities together.
      */
     public static final class Join extends ValueTypeBase {
-        final int first; final int second;
-        Join(int first, int second) {
-            this.first=first;this.second=second;
+        final Integer[] branches;
+        Join(Integer[] branches) {
+            this.branches=branches;
         }
+    }
 
+    public static final class Cast extends ValueTypeBase {
+        final int source;
+        final Type type;
+        Cast(int source, Type type) {
+            this.source=source;this.type=type;
+        }
     }
 
     public static final class Method extends ValueTypeBase {

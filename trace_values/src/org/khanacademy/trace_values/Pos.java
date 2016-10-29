@@ -15,6 +15,10 @@ public class Pos {
         this.col = col;
     }
 
+    public static Pos ghost(String path) {
+        return new Pos(path, -1, -1);
+    }
+
     public static Pos fromPosition(String path, Position pos) {
         return new Pos(path, pos.line, pos.column);
     }
