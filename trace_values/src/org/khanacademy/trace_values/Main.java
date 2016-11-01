@@ -11,6 +11,7 @@ import com.github.javaparser.ast.imports.SingleTypeImportDeclaration;
 import com.github.javaparser.ast.type.Type;
 
 import java.io.*;
+import java.nio.file.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
@@ -36,6 +37,8 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
+        FileSystems.getDefault().getPath("/Users/jared");
+        DirectoryStream str = Files.newDirectoryStream(java.nio.file.Path);
         try {
             String name = "./src/org/khanacademy/trace_values/Main.java"
             new Processor().process(name);

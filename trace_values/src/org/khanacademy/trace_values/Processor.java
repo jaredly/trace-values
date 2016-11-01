@@ -13,10 +13,7 @@ import com.github.javaparser.ast.type.Type;
 import com.github.javaparser.utils.Pair;
 
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * Created by jared on 10/29/16.
@@ -46,10 +43,11 @@ public class Processor {
     Processor() {}
 
     Value.ValueTypeBase fromInitializer(Optional<Expression> init, Type type) {
-
+        return new Value.Uninitialized(type);
     }
 
     void process(String path) {
+
         CompilationUnit file = JavaParser.parse(path);
         processFile(path, file);
     }
@@ -109,7 +107,7 @@ public class Processor {
             for (MethodDeclaration methodDeclaration : typeDeclaration.getMethods()) {
                 handleMethod(path, filename, methodDeclaration);
                 methodDeclaration.getType();
-                methodDeclaration.getBody();
+                methodDeclaration.getBody().get().getStmts().get(0)
                 methodDeclaration.getName();
                 methodDeclaration.getParameters();
                 methodDeclaration.getTypeParameters();
@@ -130,10 +128,10 @@ public class Processor {
     }
 
     private final static class State {
-        final List<Integer> allIds
-        final List<Integer> returnIds
-        final Path path
-        final String filename ;
+        final List<Integer> allIds;
+        final List<Integer> returnIds;
+        final Path path;
+        final String filename;
         State(List<Integer> allIds, List<Integer> returnIds, Path path, String filename) {
             this.allIds=allIds;this.returnIds=returnIds;this.path=path;this.filename=filename;
         }
@@ -186,6 +184,7 @@ public class Processor {
                 return mergeScopes(scope, scope1);
             }
         }
+        throw new IllegalArgumentException("Don't know how to handle this statement");
     }
 
     private void handleMethod(Path path, String filename, MethodDeclaration decl) {

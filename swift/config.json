@@ -1,0 +1,50 @@
+{
+  "swiftc": "/Applications/Xcode.app/Contents/Developer/Toolchains/Swift_2.3.xctoolchain/usr/bin/swiftc",
+  "target": "x86_64-apple-ios8.0",
+  "sdk": "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator10.0.sdk",
+  "include": [
+    "/Users/jared/khan/iOS/Build/Products/Debug-iphonesimulator"
+  ],
+  "frameworks": [
+    "/Users/jared/khan/iOS/Build/Products/Debug-iphonesimulator",
+    "/Users/jared/khan/iOS/ThirdParty/MathWidget",
+    "/Users/jared/khan/iOS",
+    "/Users/jared/khan/iOS/Carthage/Build/iOS",
+    "/Users/jared/khan/iOS/Resources",
+    "/Users/jared/khan/iOS/ThirdParty"
+  ],
+  "import-objc-header": "/Users/jared/khan/iOS/Khan Academy-Bridging-Header.h",
+  "module-cache-path": "/Users/jared/Library/Developer/Xcode/DerivedData/ModuleCache",
+  "flags": [
+    "KHAN_DEBUG",
+    "KHA_GOOGLE_CLIENT_ID=\"124072386181-u3bkof9i964vu0jguft7174mf4irg895.apps.googleusercontent.com\"",
+    "KHA_GOOGLE_REV_ID=com.googleusercontent.apps.124072386181-u3bkof9i964vu0jguft7174mf4irg895"
+  ],
+  "ccflags": [
+    "-I/Users/jared/khan/iOS/Build/Intermediates/Khan Academy.build/Debug-iphonesimulator/Khan Academy.build/swift-overrides.hmap",
+    "-iquote",
+    "/Users/jared/khan/iOS/Build/Intermediates/Khan Academy.build/Debug-iphonesimulator/Khan Academy.build/Khan Academy-generated-files.hmap",
+    "-I/Users/jared/khan/iOS/Build/Intermediates/Khan Academy.build/Debug-iphonesimulator/Khan Academy.build/Khan Academy-own-target-headers.hmap",
+    "-I/Users/jared/khan/iOS/Build/Intermediates/Khan Academy.build/Debug-iphonesimulator/Khan Academy.build/Khan Academy-all-non-framework-target-headers.hmap",
+    "-ivfsoverlay",
+    "/Users/jared/khan/iOS/Build/Intermediates/Khan Academy.build/all-product-headers.yaml",
+    "-iquote",
+    "/Users/jared/khan/iOS/Build/Intermediates/Khan Academy.build/Debug-iphonesimulator/Khan Academy.build/Khan Academy-project-headers.hmap",
+    "-iquote/Users/jared/khan/iOS/Build/Products/../IntermediateBuildFilesPath/UninstalledProducts/include",
+    "-I/Users/jared/khan/iOS/Build/Products/Debug-iphonesimulator/include",
+    "-I/Users/jared/khan/iOS/ThirdParty/CocoaLumberjack/Classes",
+    "-I/Users/jared/khan/iOS/ThirdParty/pop",
+    "-I/Users/jared/khan/iOS/Build/Products/../IntermediateBuildFilesPath/UninstalledProducts/include",
+    "-I/Users/jared/khan/iOS/Build/Intermediates/Khan Academy.build/Debug-iphonesimulator/Khan Academy.build/DerivedSources/x86_64",
+    "-I/Users/jared/khan/iOS/Build/Intermediates/Khan Academy.build/Debug-iphonesimulator/Khan Academy.build/DerivedSources",
+    "-working-directory/Users/jared/khan/iOS"
+  ],
+  "module-name": "Khan_Academy",
+  "etc": [
+    "-Onone",
+    "-dump-ast",
+    "-enable-testing",
+    "-g"
+  ]
+}
+
